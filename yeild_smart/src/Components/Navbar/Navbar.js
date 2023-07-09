@@ -18,6 +18,7 @@ const Navbar = () => {
 
         return (() => window.removeEventListener('scroll', changeBackground))
     }, [])
+    
 
 
 
