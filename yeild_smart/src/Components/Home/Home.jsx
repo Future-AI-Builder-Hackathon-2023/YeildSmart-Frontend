@@ -31,27 +31,27 @@ const Home = () => {
   }, [])
 
 
-  const progressBarHandler = () => {
-    const totalScroll = document.documentElement.scrollTop
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
-    const scroll = `${totalScroll / windowHeight}`
-    const progressBar = document.getElementById('progressBar')
-    progressBar.style.transform = `scale(${scroll},1)`
-    progressBar.style.opacity = `${scroll}`
-  }
-  window.addEventListener('scroll', progressBarHandler)
+  // const progressBarHandler = () => {
+  //   const totalScroll = document.documentElement.scrollTop
+  //   const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  //   const scroll = `${totalScroll / windowHeight}`
+  //   const progressBar = document.getElementById('progressBar')
+  //   progressBar.style.transform = `scale(${scroll},1)`
+  //   progressBar.style.opacity = `${scroll}`
+  // }
+  // window.addEventListener('scroll', progressBarHandler)
 
 
-  const backtopRef = useRef()
-  window.addEventListener('scroll', () => {
-    if (backtopRef.current !== null) {
-      if (window.scrollY > 400) {
-        backtopRef.current?.classList.add("active")
-      } else {
-        backtopRef.current?.classList.remove("active")
-      }
-    }
-  })
+  // const backtopRef = useRef()
+  // window.addEventListener('scroll', () => {
+  //   if (backtopRef.current !== null) {
+  //     if (window.scrollY > 400) {
+  //       backtopRef.current?.classList.add("active")
+  //     } else {
+  //       backtopRef.current?.classList.remove("active")
+  //     }
+  //   }
+  // })
 
   const { ref: playRef, inView, entry } = useInView({ threshold: 0.6 })
   if (entry !== undefined) {
@@ -89,7 +89,7 @@ const Home = () => {
                   your resources and inquiries regarding crop yield optimization and smart farming practices.
                   </p>
 
-                  <Link to='/yeildsmart' className='link btn has-before'>
+                  <Link to='/predictCrop' className='link btn has-before'>
                     <span>Predict Crop</span>
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </Link>
@@ -148,9 +148,9 @@ const Home = () => {
 
         <Footer />
 
-        <a href="#" className="back-top-btn" aria-label="back top top" ref={backtopRef}>
+        {/* <a href="#" className="back-top-btn" aria-label="back top top" ref={backtopRef}>
           <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
-        </a>
+        </a> */}
 
 
         <style>

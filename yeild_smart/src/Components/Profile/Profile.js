@@ -19,7 +19,6 @@ const Profile = ({ handleOverflow }) => {
             {!userData
                 ? <Link to='/login'><li onClick={handleOverflow}>Sign in</li></Link>
                 : (<>
-                    <Link to='/predictCrop'><li onClick={handleOverflow}>Predict Crop</li></Link>
                     <li onClick={logout} id='userlogout'>
                         <div className="logout">
                             <img src={userLogo} width={35} style={{ "borderRadius": "50%" }} alt="avatar" />
