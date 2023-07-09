@@ -1,7 +1,7 @@
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
-
+import Profile from '../Profile/Profile'
 
 const Navbar = () => {
 
@@ -51,6 +51,7 @@ const Navbar = () => {
                 <div className="menu">
                     <a href='#about'><li onClick={removeOverflow}>About Us</li></a>
                     <a href='#footer'><li onClick={removeOverflow}>Contact Us</li></a>
+                    <Profile handleOverflow={removeOverflow} />
                 </div>
             </ul>
         </nav>
