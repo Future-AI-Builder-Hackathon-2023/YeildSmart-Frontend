@@ -1,6 +1,8 @@
 main {
     min-width: 365px;
   }
+
+  
   
   .hero {
     padding-block-start: calc(var(--section-padding) + 187px);
