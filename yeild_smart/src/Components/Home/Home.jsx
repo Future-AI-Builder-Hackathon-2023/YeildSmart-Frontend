@@ -25,10 +25,10 @@ const Home = () => {
   const [pageLoading, setPageLoading] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // useEffect(() => {
-  //   AOS.init()
-  //   AOS.refresh()
-  // }, [])
+  useEffect(() => {
+    AOS.init()
+    AOS.refresh()
+  }, [])
 
 
   // const progressBarHandler = () => {
