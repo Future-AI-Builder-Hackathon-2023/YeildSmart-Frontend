@@ -18,21 +18,7 @@ const Footer = () => {
       };
     return (
         <footer className="footer" id="footer" style={{ "backgroundImage": `url(${footerBg})` }}>
-            <div className="footer-top section">
-                <div className="container">
-                    <div className="footer-brand" >
-                        <p className="footer-brand-text" >
-                            Thank You for visiting our website. Wishing you a very happy day ahead.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="right-j">
-                <form action="" className='email-container' ref={form} onSubmit={sendEmail}>
-                    <input type="email" name="user_email" placeholder='Enter Your Email Address' id="" />
-                    <button className="btn btn-j">Join Now</button>
-                </form>
-            </div>
+            
             <div className="footer-bottom">
                 <div className="container">
                     <p className="copyright">
