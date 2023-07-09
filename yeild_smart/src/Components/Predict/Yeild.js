@@ -32,6 +32,7 @@ const Yeild = () => {
   }
   const handleOnSearch = async () => {
     setLoading(true)
+    setResult("")
     const res = await axios.post(`http://3.88.181.187:8080/v1/`, {
       "model": "gpt-4",
       "messages": [{ "role": "user", "content": `${search}` }]
@@ -111,9 +112,9 @@ const Yeild = () => {
           <form onSubmit={handleSubmit} style={{ height: "60em", overflow: "scroll" }}>
             <h1 className='title'>Chat with expert</h1>
             <div style={{ display: "flex" }}>
-              <input name="search" value={search} onChange={handleSearchChange} style={{ width: "40em" }} placeholder="Ask Any Question" />
+              <textarea name="search" value={search} onChange={handleSearchChange} style={{ width: "40em",fontSize:"15px",borderWidth:"2px",padding:"1em" }} placeholder="Ask Any Question" rows={4} />
               <div >
-                <ArrowCircleRightIcon style={{ fontSize: "45px", marginTop: "9px", marginLeft: "10px", cursor: "pointer" }} onClick={handleOnSearch} />
+                <ArrowCircleRightIcon style={{ fontSize: "45px", marginTop: "20px", marginLeft: "10px", cursor: "pointer" }} onClick={handleOnSearch} />
               </div>
             </div>
             <div style={{ marginTop: "1.5em", fontSize: "1.3em" }}>
