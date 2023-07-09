@@ -6,11 +6,14 @@ import Loader from '../Loader/Loader';
 
 
 const Layout = () => {
+    console.log("Hello")
     return (
         <>
             <Navbar />
             <Suspense fallback={<Loader/>}>
-                <Outlet></Outlet>
+                <Outlet>
+                
+                </Outlet>
             </Suspense>
             <Footer />
         </>

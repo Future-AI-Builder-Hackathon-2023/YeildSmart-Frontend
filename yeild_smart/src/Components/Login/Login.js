@@ -5,7 +5,7 @@ import './login.css'
 import Loader from '../../Components/Loader/Loader'
 import { AuthContext } from '../../Context/authContext/AuthContext'
 import { loginFailure, loginStart, loginSuccess } from '../../Context/authContext/AuthActions'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
@@ -37,15 +37,14 @@ const Login = () => {
             setSignupResReceived(false)
             setBtnDisabled(true)
             try {
-                const res = await axios.post("/auth/register", {
+                let role="USER"
+                const res = await axios.post("https://yeildsmart.onrender.com/createUser", {
                     name: name.trim(),
-                    username,
                     email,
-                    password
+                    password,
+                    role
                 })
-                setSignupRes(res)
-
-                await axios.post('/auth/registerMail', { username, userEmail: email })
+                setSignupRes(res)                
 
                 setTimeout(() => {
                     gotoSignin()
@@ -70,15 +69,18 @@ const Login = () => {
     /* API CALL */
     const [loginRes, setLoginRes] = useState({})
     const [loginresReceived, setLoginResReceived] = useState()
+    const navigate = useNavigate();
     const login = async (user, dispatch) => {
         dispatch(loginStart())
 
         try {
-            const res = await axios.post("/auth/login", user)
-            dispatch(loginSuccess(res.data))
+            const res = await axios.post("https://yeildsmart.onrender.com/loginUser", user)
+            sessionStorage.setItem("userData" , res.data.data)
+            navigate('/predictCrop')
+            // dispatch(loginSuccess(res.data))
         } catch (err) {
             setLoginRes(err.response)
-            dispatch(loginFailure())
+            // dispatch(loginFailure())
         } finally {
             setLoginResReceived(true)
             setBtnDisabled(false)

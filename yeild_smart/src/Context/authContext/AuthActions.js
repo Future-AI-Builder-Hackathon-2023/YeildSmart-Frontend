@@ -9,7 +9,6 @@ export const loginFailure = () => ({
     type: "LOGIN_FAILURE"
 })
 
-
 export const logout = () => ({
     type: "LOGOUT"
 })
