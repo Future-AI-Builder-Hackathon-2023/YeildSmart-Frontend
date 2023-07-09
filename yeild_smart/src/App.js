@@ -4,6 +4,7 @@ import { BasicRoutesConfig, rolesConfig } from './Routes/Routes';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Components/Layout/Layout';
 import { ADMIN, USER } from './Utils/Constant';
+import Loader from './Components/Loader/Loader';
 
 function App() {
   let isAuthenticated = true;
@@ -17,7 +18,7 @@ function App() {
     }
   }
   return (
-    <Suspense fallback={<div>Loader</div>}>
+    <Suspense fallback={<Loader  />}>
       <Routes>
         {BasicRoutesConfig.map((route, key) => {
           return route ? <Route key={key} {...route} /> : null;
@@ -36,5 +37,6 @@ function App() {
     </Suspense>
   );
 }
+
 
 export default App;

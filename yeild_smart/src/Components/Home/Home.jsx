@@ -18,15 +18,12 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import Loader from '../Loader/Loader'
 
 
 const Home = () => {
-  const [upcomingEvents, setUpcomingEvents] = useState([])
-  const [pastEvents, setPastEvents] = useState([])
   const [pageLoading, setPageLoading] = useState(false)
   const [loading, setLoading] = useState(false)
-
-
 
   useEffect(() => {
     AOS.init()
@@ -65,7 +62,7 @@ const Home = () => {
 
 
   return (
-    pageLoading ? <h1>Loading...</h1>
+    pageLoading ? <Loader/>
       : <>
         <Helmet>
           <title>YeildSmart</title>
@@ -92,8 +89,8 @@ const Home = () => {
                   your resources and inquiries regarding crop yield optimization and smart farming practices.
                   </p>
 
-                  <Link to='/resources' className='link btn has-before'>
-                    <span>Yeild Smart</span>
+                  <Link to='/yeildsmart' className='link btn has-before'>
+                    <span>Predict Crop</span>
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </Link>
 
@@ -107,8 +104,7 @@ const Home = () => {
                     }}
                   >
                     <div  data-aos="fade-right" data-aos-duration="400">
-                    <img  height={270} width={280} src={YeildSmart} />
-                     <h1 style={{color:'green',}} className="span" data-aos="zoom-in" data-aos-delay="300">YeildSmart</h1>
+                    <img style={{cursor:'pointer'}} alt='YeildSmart' height={270} width={280} src={YeildSmart} />
                     </div>
                   </div>
                 </div>

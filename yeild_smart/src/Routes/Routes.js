@@ -1,8 +1,11 @@
 import React from "react";
+import NotFound from "../Components/404_NotFound/NotFound";
 
 const Home = React.lazy(() => import("../Components/Home/Home"));
 const Login = React.lazy(() => import("../Components/Login/Login"));
+const Yeild = React.lazy(() => import('../Components/Predict/Yeild'));
 
+  
 const components = {
 	Home: {
 		path: "/",
@@ -14,6 +17,16 @@ const components = {
 		name: "login",
 		element: <Login />,
 	},
+	NotFound: {
+		path:"*",
+		name:"Not Found",
+		element:<NotFound/>
+	},
+	Yeild : {
+		path:'/predictCrop',
+		name:"Yeild Smart",
+		element:<Yeild/>
+	}
 };
 const rolesConfig = {
 	Admin: {
@@ -29,6 +42,8 @@ const rolesConfig = {
 };
 const BasicRoutesConfig = [
 	components.Login,
-    components.Home
+    components.Home,
+	components.NotFound,
+	components.Yeild,
 ];
 export { rolesConfig, BasicRoutesConfig };
