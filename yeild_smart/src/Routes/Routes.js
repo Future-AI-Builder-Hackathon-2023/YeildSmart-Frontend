@@ -31,12 +31,12 @@ const components = {
 const rolesConfig = {
 	Admin: {
 		routes: [
-
+			components.Yeild,
 		],
 	},
 	user: {
 		routes: [
-
+			components.Yeild,
         ],
 	},
 };
@@ -45,5 +45,6 @@ const BasicRoutesConfig = [
     components.Home,
 	components.NotFound,
 	components.Yeild,
+	
 ];
 export { rolesConfig, BasicRoutesConfig };

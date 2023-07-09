@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import inputs from "./input";
 import axios from "axios";
 import Predict from "./Predict";
 import swal from "sweetalert";
 import './yield.css'
+import { useNavigate } from "react-router-dom";
+import Navbar2 from "../Navbar/Navbar2";
 
 const Yeild = () => {
     const [error, seterror] = useState("");
@@ -11,6 +13,14 @@ const Yeild = () => {
     const onChange = (event) => {
         setValues({ ...values, [event.target.name]: event.target.value });
       };
+      let userData = sessionStorage.getItem("userData")
+      const navigate = useNavigate();
+      useEffect(()=>{
+        if(!userData){
+          navigate('/login')
+
+        }
+      },[])
       const [values, setValues] = useState({
         nitrogen: "",
         phosphorus: "",
@@ -63,6 +73,8 @@ const Yeild = () => {
     }     
   }
 	return (
+    <>
+    <Navbar2/>
 	  <div className="body">
 		<form onSubmit={handleSubmit}>
 		  <h1 className='title'>Crop Recomendation</h1>
@@ -73,7 +85,7 @@ const Yeild = () => {
 		  ))}
 		  <button onClick={handleSubmit} className='btn'>{loading ? 'Evaluating...' : 'Recommend Crop'}</button>
 		</form>
-	  </div>)
+	  </div></>)
   }
 
   export default Yeild;
