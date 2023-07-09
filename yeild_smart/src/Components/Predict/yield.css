@@ -1,9 +1,10 @@
 .body{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   /* min-height: 100vh; */
   height: 100%;
+  padding: 3em 5em;
 }
 button{
   width: 100%;
