@@ -71,11 +71,11 @@ const Login = () => {
     const [loginresReceived, setLoginResReceived] = useState()
     const navigate = useNavigate();
     const login = async (user, dispatch) => {
-        dispatch(loginStart())
+        // dispatch(loginStart())
 
         try {
             const res = await axios.post("https://yeildsmart.onrender.com/loginUser", user)
-            sessionStorage.setItem("userData" , res.data.data)
+            sessionStorage.setItem("userData" ,  JSON.stringify(res.data.data))
             navigate('/predictCrop')
             // dispatch(loginSuccess(res.data))
         } catch (err) {
