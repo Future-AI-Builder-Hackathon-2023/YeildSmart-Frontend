@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import inputs from "./input";
 import axios from "axios";
 import Predict from "./Predict";
 import swal from "sweetalert";
 import './yield.css'
+import { useNavigate } from "react-router-dom";
 
 const Yeild = () => {
     const [error, seterror] = useState("");
@@ -11,6 +12,14 @@ const Yeild = () => {
     const onChange = (event) => {
         setValues({ ...values, [event.target.name]: event.target.value });
       };
+      let userData = sessionStorage.getItem("userData")
+      const navigate = useNavigate();
+      useEffect(()=>{
+        if(!userData){
+          navigate('/login')
+
+        }
+      },[])
       const [values, setValues] = useState({
         nitrogen: "",
         phosphorus: "",

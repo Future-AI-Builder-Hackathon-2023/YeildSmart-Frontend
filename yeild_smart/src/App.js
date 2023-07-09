@@ -7,8 +7,13 @@ import { ADMIN, USER } from './Utils/Constant';
 import Loader from './Components/Loader/Loader';
 
 function App() {
-  let isAuthenticated = true;
+  let isAuthenticated = false;
   let userRole = ""
+  let userData = sessionStorage.getItem("userData")
+  if(userData){
+    isAuthenticated=true;
+    userRole=userData.role
+  }
   let routes;
   if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
     if (userRole === USER || sessionStorage.getItem("userRole") === USER) {
