@@ -52,6 +52,8 @@ li {
     align-items: center;
     gap: 1em;
     font-size: 18px;
+    justify-content: flex-end;
+    margin-left: 55rem;
 }
 
 .menu li:hover {
