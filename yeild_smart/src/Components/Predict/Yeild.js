@@ -3,6 +3,8 @@ import inputs from "./input";
 import axios from "axios";
 import Predict from "./Predict";
 import swal from "sweetalert";
+import './yield.css'
+
 const Yeild = () => {
     const [error, seterror] = useState("");
     const [loading, setLoading] = useState();
