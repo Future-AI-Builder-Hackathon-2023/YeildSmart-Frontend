@@ -39,6 +39,7 @@ const Navbar = () => {
 
     return (
         <nav className={navbar ? "navbar" : "navbar_scroll"}>
+            <h2 style={{marginLeft:"2em"}}>YeildSmart</h2>
             <ul className="nav-links">
                 <input type="checkbox" id="checkbox_toggle" onClick={hidebodyOverflow} ref={checkboxRef} />
                 <label
