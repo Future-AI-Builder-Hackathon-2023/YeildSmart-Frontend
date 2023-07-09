@@ -40,7 +40,7 @@ const Yeild = () => {
         { seterror("*Rainfall is Required!");}
         else
     {
-      const { data } = await axios.post(`https://cropforesight-backend.onrender.com/predict`, { nitrogen: Number(values.nitrogen), phosphorus: Number(values.phosphorus), potassium: Number(values.potassium), temperature: Number(values.temperature), humidity: Number(values.humidity), ph: Number(values.ph), rainfall: Number(values.rainfall) })
+      const { data } = await axios.post(`https://yeildsmart.onrender.com/predictCrop`, { nitrogen: Number(values.nitrogen), phosphorus: Number(values.phosphorus), potassium: Number(values.potassium), temperature: Number(values.temperature), humidity: Number(values.humidity), ph: Number(values.ph), rainfall: Number(values.rainfall) })
       setLoading(false)
       seterror("");
       values.nitrogen='';values.phosphorus='';values.potassium='';values.temperature='';values.humidity='';values.ph='';values.rainfall='';
