@@ -10,6 +10,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { MetroSpinner } from 'react-spinners-kit'
 import Loader from "../../helper/Loader";
 
+
 const Yeild = () => {
   const [error, seterror] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,6 +52,19 @@ const Yeild = () => {
     ph: "",
     rainfall: "",
   });
+  const handleAskThe=(event)=>{
+    event.preventDefault();
+    setSearch(`Hey ChatGpt can u help to suggest me crop on basis of data I have in farm
+    Nitrogn ${values.nitrogen}ppm,
+    Phosphorous ${values.phosphorus}ppm,
+    Potasium ${values.potassium}ppm,
+    Temperature ${values.temperature} C,
+    humidity ${values.humidity}%,
+    ph	${values.ph},
+    rainfall	${values.rainfall}mm
+    Give only one-word crop name and no other details.`)
+    handleOnSearch()
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -105,7 +119,10 @@ const Yeild = () => {
               <Predict key={input.id} {...input} value={values[input.name]} onChange={onChange}
               />
             ))}
-            <button onClick={handleSubmit} className='btn'>{loading ? 'Evaluating...' : 'Recommend Crop'}</button>
+            <div style={{display:"flex",justifyContent:"start"}}>
+            <button onClick={handleSubmit} className='btn' style={{width:"100%",marginLeft:"1em"}}>{loading ? 'Evaluating...' : 'Predict Crop'}</button>
+            <button onClick={handleAskThe} className='btn'> Ask The Expert</button>
+            </div>
           </form>
         </div>
         <div style={{ width: "50%", alignSelf: "start" }}>
